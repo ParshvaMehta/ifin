@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const bankRouter = require('./routes/banks');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/finance', {useNewUrlParser: true});
 var db = mongoose.connection;
@@ -21,6 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
+app.use('/bank', bankRouter);
 
 module.exports = app;
