@@ -1,1 +1,1 @@
-# finance-management
+# iFin
